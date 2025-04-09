@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday, Sayang 💙</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Happy Birthday, Sayang 💙</title>
+<style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -117,57 +118,75 @@
     audio {
       margin-top: 20px;
     }
-  </style>
+  
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Red_Heart.svg/1024px-Red_Heart.svg.png') no-repeat center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 5;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+</style>
 </head>
 <body>
-  <div class="stars" id="stars"></div>
-
-  <div class="overlay" id="overlay">
-    <h2>Hai sayang 💙</h2>
-    <p>Aku punya sesuatu yang spesial buat kamu hari ini...</p>
-    <button onclick="showContent()">Iya, mau banget 💙</button>
-    <button onclick="alert('eh tapi jangan lama-lama yaa~ 😜')">Nanti aja deh 😅</button>
-  </div>
-
-  <div class="content" id="mainContent">
-    <img src="foto.jpg" alt="Foto kita" />
-    <div class="container">
-      <h1>Selamat Ulang Tahun, Cinta 💙</h1>
-      <p>
-        Hai kamu yang paling aku sayang,<br><br>
-        Selamat ulang tahun, sayang… 💙<br>
+<div class="stars" id="stars"></div>
+<div class="overlay" id="overlay">
+<h2>Hai sayang 💙</h2>
+<p>Aku punya sesuatu yang spesial buat kamu hari ini...</p>
+<button onclick="showContent()">Iya, mau banget 💙</button>
+<button onclick="alert('eh tapi jangan lama-lama yaa~ 😜')">Nanti aja deh 😅</button>
+</div>
+<div class="content" id="mainContent"><div style="display: flex; flex-direction: row; align-items: flex-start; gap: 30px; flex-wrap: wrap;"><img alt="Foto kita" src="foto.jpg" style="max-width: 250px; height: auto; flex-shrink: 0;"/><div class="container">
+<h1>Selamat Ulang Tahun, Sayang 💙</h1>
+<p>
+        Hai kamu yang paling aku sayang,<br/><br/>
+        Selamat ulang tahun, sayang… 💙<br/>
         Hari ini, aku cuma mau kamu tahu satu hal: kamu adalah salah satu alasan kenapa aku tetap kuat meskipun jarak ini kadang nyakitin. Karena aku tahu, di ujung semua ini, ada kamu yang selalu aku tunggu.
       </p>
-      <p>
-        Kita udah jalan bareng dua tahun—dua tahun yang nggak selalu mulus. Ada tawa, ada air mata. Kita pernah saling diam, saling ngambek, bahkan mikir "masih bisa lanjut nggak sih?" Tapi nyatanya… kita selalu balik lagi ke satu titik: <strong>cinta</strong>.
+<p>
+        Kita udah jalan bareng dua tahun—dua tahun yang nggak selalu mulus. Ada tawa, ada air mata. Kita pernah saling diam, saling ngambek, bahkan mikir "masih bisa lanjut nggak sih?" Tapi nyatanya… kita selalu balik lagi ke satu titik: <strong>sayang</strong>.
       </p>
-      <p>
+<p>
         Aku percaya hubungan yang kuat bukan yang tanpa masalah, tapi yang tetap saling genggam meski udah sama-sama capek. Dan kamu, selalu jadi tempat aku balik pulang.
       </p>
-      <p>
-        Di hari ulang tahunmu ini, aku pengen kamu tahu…<br>
-        Meski aku nggak bisa peluk kamu langsung, pelukanku tetap ada di kata-kata ini.<br>
-        Meski suaraku nggak nyentuh telingamu sekarang, hatiku tetap nyebut namamu.<br>
+<p>
+        Di hari ulang tahunmu ini, aku pengen kamu tahu…<br/>
+        Meski aku nggak bisa peluk kamu langsung, pelukanku tetap ada di kata-kata ini.<br/>
+        Meski suaraku nggak nyentuh telingamu sekarang, hatiku tetap nyebut namamu.<br/>
         Dan meski tangan kita nggak bisa saling genggam hari ini, aku selalu genggam janji kita dalam hati.
       </p>
-      <p>
-        Kamu berhak bahagia. Di hari ini, dan seterusnya.<br>
-        Dan aku janji, akan terus berusaha jadi pasangan yang baik buat kamu—dengan segala caraku yang kadang berantakan, tapi tulus.
+<p>
+        Kamu berhak bahagia. Di hari ini, dan seterusnya.<br/>
+        Dan aku janji, akan terus jadi orang yang berusaha bahagiain kamu—dengan segala caraku yang kadang berantakan, tapi tulus.
       </p>
-      <p>
-        Happy birthday, sayang Terima kasih udah lahir ke dunia ini, dan lebih dari itu—terima kasih udah tetap bertahan bersamaku selama dua tahun yang luar biasa ini.
+<p>
+        Happy birthday, sayang. Terima kasih udah lahir ke dunia ini, dan lebih dari itu—terima kasih udah tetap bertahan bersamaku selama dua tahun yang luar biasa ini.
       </p>
-      <p class="signature">
-        Aku cinta kamu. Selalu.<br>
-        <strong>Your Future</strong>
-      </p>
-      <audio controls autoplay loop>
-        <source src="https://www.bensound.com/bensound-img/love.mp3" type="audio/mpeg">
+<p class="signature">
+        Aku sayang kamu. Selalu.<br/>
+<strong>Your Future</strong>
+</p>
+<audio autoplay="" controls="" loop="">
+<source src="https://ia800208.us.archive.org/33/items/ran-melawan-dunia/RAN%20-%20Melawan%20Dunia.mp3" type="audio/mpeg"/>
+        Lagu tidak bisa diputar di browser kamu 😢
       </audio>
-    </div>
-  </div>
-
-  <script>
+</div></div></div>
+<script>
     function showContent() {
       document.getElementById('overlay').style.display = 'none';
       document.getElementById('mainContent').style.display = 'flex';
@@ -186,6 +205,19 @@
     }
 
     createStars();
+
+    function createHearts() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+        heart.style.animationDelay = (Math.random() * 5) + "s";
+        document.body.appendChild(heart);
+      }
+    }
+    createHearts();
+
   </script>
 </body>
 </html>
