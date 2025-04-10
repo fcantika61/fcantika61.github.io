@@ -1,220 +1,133 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Happy Birthday, Sayang 💙</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Ulang Tahun, Sayang 💙</title>
+  <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
       overflow-y: auto;
-    }
-
-    .stars {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      animation: starfall 5s linear infinite;
-    }
-
-    @keyframes starfall {
-      from { transform: translateY(-10px); opacity: 1; }
-      to { transform: translateY(100vh); opacity: 0; }
-    }
-
-    .overlay {
-      position: fixed;
-      z-index: 10;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      color: white;
-      padding: 20px;
-    }
-
-    .overlay button {
-      margin: 10px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background-color: #ffffff;
-      color: #1e3c72;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .overlay button:hover {
-      background-color: #a0c4ff;
-    }
-
-    .content {
-      display: none;
       position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      min-height: 100vh;
-      padding: 20px;
-      box-sizing: border-box;
-      color: white;
     }
-
+    .heart {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: red;
+      transform: rotate(45deg);
+      top: -10px;
+      animation: fall 7s linear infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+      100% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+    }
     .container {
       max-width: 700px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.3);
       padding: 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       backdrop-filter: blur(10px);
+      color: #1e3c72;
+      position: relative;
+      z-index: 1;
     }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #f0f8ff;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .signature {
-      margin-top: 30px;
-      font-style: italic;
-      text-align: right;
-    }
-
-    img {
+    .container img {
       width: 100%;
       max-width: 300px;
       border-radius: 15px;
       margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    audio {
-      margin-top: 20px;
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      color: #003366;
     }
-  
-    .heart {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Red_Heart.svg/1024px-Red_Heart.svg.png') no-repeat center;
-      background-size: contain;
-      pointer-events: none;
-      z-index: 5;
-      animation: fall 5s linear infinite;
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 15px;
     }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-10px) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
+    .signature {
+      font-style: italic;
+      text-align: right;
+      margin-top: 30px;
     }
-
-</style>
+    iframe {
+      display: block;
+      margin: 30px auto 0;
+      border-radius: 12px;
+    }
+  </style>
 </head>
 <body>
-<div class="stars" id="stars"></div>
-<div class="overlay" id="overlay">
-<h2>Hai sayang 💙</h2>
-<p>Aku punya sesuatu yang spesial buat kamu hari ini...</p>
-<button onclick="showContent()">Iya, mau banget 💙</button>
-<button onclick="alert('eh tapi jangan lama-lama yaa~ 😜')">Nanti aja deh 😅</button>
-</div>
-<div class="content" id="mainContent"><div class="framed-wrapper" style="background: white; border-radius: 20px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 5px dashed #a1c4fd; max-width: 800px; margin: 0 auto; color: #333;"><img alt="Foto kita" src="foto.jpg" style="max-width: 200px; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px;"/><div class="container">
-<h1>Selamat Ulang Tahun, Sayang 💙</h1>
-<p>
-        Hai kamu yang paling aku sayang,<br/><br/>
-        Selamat ulang tahun, sayang… 💙<br/>
-        Hari ini, aku cuma mau kamu tahu satu hal: kamu adalah salah satu alasan kenapa aku tetap kuat meskipun jarak ini kadang nyakitin. Karena aku tahu, di ujung semua ini, ada kamu yang selalu aku tunggu.
-      </p>
-<p>
-        Kita udah jalan bareng dua tahun—dua tahun yang nggak selalu mulus. Ada tawa, ada air mata. Kita pernah saling diam, saling ngambek, bahkan mikir "masih bisa lanjut nggak sih?" Tapi nyatanya… kita selalu balik lagi ke satu titik: <strong>cinta</strong>.
-      </p>
-<p>
-        Aku percaya hubungan yang kuat bukan yang tanpa masalah, tapi yang tetap saling genggam meski udah sama-sama capek. Dan kamu, selalu jadi tempat aku balik pulang.
-      </p>
-<p>
-        Di hari ulang tahunmu ini, aku pengen kamu tahu…<br/>
-        Meski aku nggak bisa peluk kamu langsung, pelukanku tetap ada di kata-kata ini.<br/>
-        Meski suaraku nggak nyentuh telingamu sekarang, hatiku tetap nyebut namamu.<br/>
-        Dan meski tangan kita nggak bisa saling genggam hari ini, aku selalu genggam janji kita dalam hati.
-      </p>
-<p>
-        Kamu berhak bahagia. Di hari ini, dan seterusnya.<br/>
-        Dan aku janji, akan terus jadi orang yang berusaha bahagiain kamu—dengan segala caraku yang kadang berantakan, tapi tulus.
-      </p>
-<p>
-        Happy birthday, sayang. Terima kasih udah lahir ke dunia ini, dan lebih dari itu—terima kasih udah tetap bertahan bersamaku selama dua tahun yang luar biasa ini.
-      </p>
-<p class="signature">
-        Aku sayang kamu. Selalu.<br/>
-<strong>Your Future</strong>
-</p>
-
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" frameborder="0" height="80" loading="lazy" src="https://open.spotify.com/embed/track/0WoCsT4hyNjU1xdZVsJZdc?utm_source=generator" style="margin-top: 20px; border-radius: 12px;" width="100%"></iframe></div></div></div>
-<script>
-    function showContent() {
-      document.getElementById('overlay').style.display = 'none';
-      document.getElementById('mainContent').style.display = 'flex';
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
     }
-
-    function createStars() {
-      const starsContainer = document.getElementById("stars");
-      for (let i = 0; i < 100; i++) {
-        const star = document.createElement("div");
-        star.classList.add("star");
-        star.style.left = Math.random() * 100 + "%";
-        star.style.top = Math.random() * 100 + "%";
-        star.style.animationDuration = (2 + Math.random() * 3) + "s";
-        starsContainer.appendChild(star);
-      }
-    }
-
-    createStars();
-
-    function createHearts() {
-      for (let i = 0; i < 30; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (3 + Math.random() * 5) + "s";
-        heart.style.animationDelay = (Math.random() * 5) + "s";
-        document.body.appendChild(heart);
-      }
-    }
-    createHearts();
-
+    setInterval(createHeart, 300);
   </script>
+
+  <div class="container">
+    <img src="foto.jpg" alt="Foto kita" />
+    <h1>Selamat Ulang Tahun, Sayang 💙</h1>
+    <p>Hai kamu yang paling aku sayang,</p>
+    <p>Selamat ulang tahun, sayang… 💙<br>
+    Hari ini, aku cuma mau kamu tahu satu hal: kamu adalah salah satu alasan kenapa aku tetap kuat meskipun jarak ini kadang nyakitin. Karena aku tahu, di ujung semua ini, ada kamu yang selalu aku tunggu.</p>
+
+    <p>Kita udah jalan bareng dua tahun—dua tahun yang nggak selalu mulus. Ada tawa, ada air mata. Kita pernah saling diam, saling ngambek, bahkan mikir "masih bisa lanjut nggak sih?" Tapi nyatanya… kita selalu balik lagi ke satu titik: <strong>sayang</strong>.</p>
+
+    <p>Aku percaya hubungan yang kuat bukan yang tanpa masalah, tapi yang tetap saling genggam meski udah sama-sama capek. Dan kamu, selalu jadi tempat aku balik pulang.</p>
+
+    <p>Di hari ulang tahunmu ini, aku pengen kamu tahu…<br>
+    Meski aku nggak bisa peluk kamu langsung, pelukanku tetap ada di kata-kata ini.<br>
+    Meski suaraku nggak nyentuh telingamu sekarang, hatiku tetap nyebut namamu.<br>
+    Dan meski tangan kita nggak bisa saling genggam hari ini, aku selalu genggam janji kita dalam hati.</p>
+
+    <p>Kamu berhak bahagia. Di hari ini, dan seterusnya.<br>
+    Dan aku janji, akan terus jadi orang yang berusaha bahagiain kamu—dengan segala caraku yang kadang berantakan, tapi tulus.</p>
+
+    <p>Happy birthday, sayang. Terima kasih udah lahir ke dunia ini, dan lebih dari itu—terima kasih udah tetap bertahan bersamaku selama dua tahun yang luar biasa ini.</p>
+
+    <p class="signature">Aku cinta kamu. Selalu.<br><strong>Your Future</strong></p>
+
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2gYoHg7uqQ7rNKibB9H9HQ?utm_source=generator"
+    width="100%" height="80" frameBorder="0" allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
 </body>
 </html>
